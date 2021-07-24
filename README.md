@@ -27,15 +27,15 @@ Installed development software
 ### Installing / Setup
 
 Install the required dependencies
-	$ npm init
-	$ npm install dotenv
-	$ npm install path
-	$ npm install express
-	$ npm install body-parser
-	$ npm install mongoose
-    $ npm install ejs
-    $ npm install express-ejs-layouts
-    $ npm --save-dev nodemon
+	* $ npm init
+	* $ npm install dotenv
+	* $ npm install path
+	* $ npm install express
+	* $ npm install body-parser
+	* $ npm install mongoose
+    * $ npm install ejs
+    * $ npm install express-ejs-layouts
+    * $ npm --save-dev nodemon
 
 
 ## Configure app.env
@@ -43,27 +43,26 @@ Install the required dependencies
 You need remote or local mongo db running. Create a app.env file then add the following vars
 
 Using Remote:
-    MONGODB_URL=mongodb+srv://XXXXXXXX@cluster0.euffl.mongodb.net/YYYYYYYY?retryWrites=true&w=majority
+    * MONGODB_URL=mongodb+srv://XXXXXXXX@cluster0.euffl.mongodb.net/YYYYYYYY?retryWrites=true&w=majority
 
         Where XXXXXXXX is your Mongo DB auth string / url
         Where YYYYYYYY is your Mongo DB database name
 
 Using LocalHost: 
-    MONGODB_URL=mongodb://localhost:27017/demoBookStoreDB
+    * MONGODB_URL=mongodb://localhost:27017/demoBookStoreDB
 
 
 Define the local host port
-    LOCALHOST_PORT=3000
+    * LOCALHOST_PORT=3000
 
     
 
 
 ## Running the applciation
 
-	$ nodemon localhost 3000
-    $ npm run devStart
-
-	$ http://localhost:3000
+	* $ nodemon localhost 3000
+    * $ npm run devStart
+	* $ http://localhost:3000
 
 
 ## Running the tests
@@ -105,8 +104,19 @@ No Licence
 
 ## Acknowledgments
 
+* Learning resources: https://www.youtube.com/watch?v=qj2oDkvc4dQ
 * TODO
 * TODO
-* TODO
+
+
+# Dev Git reminders
+git add .
+git commit -m "updateX"
+git branch -M main
+git push -u origin main
+
+## Heroku
+$ heroku git:remote -a agbdemo
+$ git push heroku main
 
 {"mode":"full","isActive":false}

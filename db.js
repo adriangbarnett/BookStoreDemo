@@ -16,7 +16,7 @@ database.on("close", () => console.log("Connection closed to DB" ));
 
 // connect to cloud database
 module.exports.connect = connect;
-function connect(){
+function connect() {
 
     console.log("connecting to: " + process.env.MONGODB_URL);
 
@@ -69,3 +69,12 @@ module.exports.doDropCollection = (res, collectionName) => {
     });
 
 }
+
+
+// db.getCollectionNames().forEach( function(collection_name) { 
+    //     if (collection_name.indexOf("system.") == -1) {
+    //         print ( ["Removing: ", db[collection_name].count({}), " documents from ", collection_name].join('') );
+    //         db[collection_name].remove({}); 
+    //     }
+    // });
+    // return;

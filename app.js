@@ -13,8 +13,14 @@ const bodyParser = require("body-parser");
 app.set('view engine', 'ejs');
 app.set('views', './views');
 app.use(express.static("public"));
-app.use(bodyParser.json({ limit : '50mb'}));
-app.use(bodyParser.urlencoded({ limit : '50mb', extended : true}));
+
+
+// bodyparser HELP: https://stackoverflow.com/questions/66525078/bodyparser-is-deprecated
+// If you are using Express 4.16+ you don't have to import body-parser anymore. 
+// You can do it just like this:
+app.use(express.json()) // To parse the incoming requests with JSON payloads
+app.use(express.urlencoded({extended: false}));
+
 //app.set('layout',"./layouts/layout")
 //app.use(expressLayouts);
 
@@ -28,10 +34,12 @@ const errorHandler = require("./handlers/errorHandlers");
 
 // Routes
 const indexRouter = require('./routes/index.js');
-const apiRouter = require('./routes/api.js');
+const authorsRouter = require('./routes/authors.js');
+const devRouter = require('./routes/dev.js');
 
 app.use('/', indexRouter);
-app.use('/api', apiRouter);
+app.use('/authors', authorsRouter);
+app.use('/dev', devRouter);
 
 // Mongo DB database
 const database = require("./db");

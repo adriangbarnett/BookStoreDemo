@@ -1,0 +1,394 @@
+{
+	"info": {
+		"_postman_id": "00d07243-0d3f-4e88-ac94-1d953e3c8d46",
+		"name": "BookStore",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "authors",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/authors",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"authors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "new",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/authors/new",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"authors",
+						"new"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"postman.setEnvironmentVariable(\"id\", jsonData._id);\r",
+							"postman.setEnvironmentVariable(\"name\", jsonData.name);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "text/plain,application/*+json,*/*",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"demoName1\",\r\n    \"comments\": \"demoComment1\",\r\n    \"active\": true\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}/authors",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"authors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetById",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "text/plain,application/*+json,*/*",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/authors/id/{{id}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"authors",
+						"id",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Dev",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "text/plain,application/*+json,*/*",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/dev?id=myID1&name=myName1&auth=abc123",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"dev"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "myID1"
+						},
+						{
+							"key": "name",
+							"value": "myName1"
+						},
+						{
+							"key": "auth",
+							"value": "abc123"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Dev",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "text/plain,application/*+json,*/*",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"text\": \"text1\",\r\n\"bool\": true,\r\n\"number\": 1\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}/dev?id=myID1&name=myName1&auth=abc123",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"dev"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "myID1"
+						},
+						{
+							"key": "name",
+							"value": "myName1"
+						},
+						{
+							"key": "auth",
+							"value": "abc123"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetByName",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "text/plain,application/*+json,*/*",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/authors/name/{{name}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"authors",
+						"name",
+						"{{name}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAll",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "text/plain,application/*+json,*/*",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/authors/all",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"authors",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteByID",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "text/plain,application/*+json,*/*",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/authors/id/{{id}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"authors",
+						"id",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteAll",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "text/plain,application/*+json,*/*",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/authors/all",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"authors",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "text/plain,application/*+json,*/*",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"update1\",\r\n    \"comments\": \"comments1\",\r\n    \"active\": false\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}/authors/60fc55adae9dc27f683b7515",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"authors",
+						"60fc55adae9dc27f683b7515"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
